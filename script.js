@@ -97,7 +97,7 @@ function makeCard(item) {
   const newTemplate = cardTemplate.content.cloneNode(true);
     newTemplate.querySelector('h1').textContent = title;
     newTemplate.querySelector('p').textContent = description;
-    newTemplate.src = querySelector('img').src = image;
+    newTemplate.querySelector('img').src = image;
     
     newTemplate.querySelector('span').textContent = price;
 
@@ -112,10 +112,11 @@ function makeCard(item) {
     return newTemplate;
 }
 
-function renderItems(item) {
+function renderItems(items) {
   items.forEach(function(item)  {
     const newTemplate = makeCard(item);
     cardTemplate.append(newTemplate);
   })
 } 
   
+renderItems(items);
