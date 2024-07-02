@@ -86,6 +86,7 @@ const items = [
 ];
 
 const cardTemplate = document.querySelector('#item-template');
+const cardContainer = document.querySelector('#shop-items');
 
 function makeCard(item) {
     const title = item.title;
@@ -101,11 +102,11 @@ function makeCard(item) {
     
     newTemplate.querySelector('span').textContent = price;
 
-  const tagsHolder = document.querySelector('.tags');
+  const tagsHolder = newTemplate.querySelector('.tags');
   tags.forEach((tag) => {
     const element = document.createElement('span');
     element.textContent = tag;
-    element.classList.add('tags');
+    element.classList.add('tag');
     tagsHolder.append(element);
   })
 
@@ -115,7 +116,7 @@ function makeCard(item) {
 function renderItems(items) {
   items.forEach(function(item)  {
     const newTemplate = makeCard(item);
-    cardTemplate.append(newTemplate);
+    cardContainer.append(newTemplate);
   })
 } 
   
